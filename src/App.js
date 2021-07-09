@@ -1,7 +1,7 @@
 import React from "react";
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import { Navbar } from './components';
+import { Navbar, Footer } from "./components";
 import {
   Home,
   SingleProduct,
@@ -12,14 +12,14 @@ import {
   Products,
   PrivateRoute,
   AuthWrapper,
-} from './pages'
+} from "./pages";
 
 function App() {
   return (
     <Router>
       <Navbar />
+      <Footer />
     </Router>
-    
   );
 }
 
