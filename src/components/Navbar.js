@@ -1,41 +1,40 @@
-import React from 'react'
-import styled from 'styled-components'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import { links } from '../utils/constants/constants'
+import React from "react";
+import styled from "styled-components";
+import { FaBars } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { links } from "../utils/constants/constants";
+import CartButton from "./cart/CartButton";
 const Navbar = () => {
-    return (
-      <NavContainer>
-      <div className='nav-center'>
-        <div className='nav-header'>
-          <Link className='logo' to='/'>
+  return (
+    <NavContainer>
+      <div className="nav-center">
+        <div className="nav-header">
+          <Link className="logo" to="/">
             ReactStore
           </Link>
-          <button type='button' className='nav-toggle' >
+          <button type="button" className="nav-toggle">
             <FaBars />
           </button>
         </div>
-        <ul className='nav-links'>
+        <ul className="nav-links">
           {links.map((link) => {
-            const { id, text, url } = link
+            const { id, text, url } = link;
             return (
               <li key={id}>
                 <Link to={url}>{text}</Link>
               </li>
-            )
+            );
           })}
-         
         </ul>
-        
+        <CartButton />
       </div>
     </NavContainer>
-  )
-    
-}
+  );
+};
 
 const NavContainer = styled.nav`
-  .logo{
-      color:red;
+  .logo {
+    color: red;
   }
   height: 5rem;
   display: flex;
@@ -100,5 +99,5 @@ const NavContainer = styled.nav`
       display: grid;
     }
   }
-`
-export default Navbar
+`;
+export default Navbar;
