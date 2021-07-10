@@ -1,7 +1,7 @@
 import React from "react";
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import { Navbar, Footer } from "./components";
+import { Navbar, Footer, Sidebar } from "./components";
 import {
   Home,
   SingleProduct,
@@ -18,6 +18,8 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <Sidebar />
+      <Home />
       <Footer />
     </Router>
   );
