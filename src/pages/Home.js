@@ -1,11 +1,14 @@
-import React from 'react'
-
+import React from "react";
+import { Contact, Hero, Services, FeaturedProduct } from "../components/index";
 const Home = () => {
-    return (
-        <div>
-            <h1>home</h1>
-        </div>
-    )
-}
+  return (
+    <main>
+      <Hero />
+      <FeaturedProduct />
+      <Services />
+      <Contact />
+    </main>
+  );
+};
 
-export default Home
+export default Home;
