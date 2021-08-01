@@ -13,7 +13,7 @@ const Contact = () => {
           </p>
           <form
             className="contact-form"
-            action="your form spree id"
+            action="https://formspree.io/f/mnqlgvlw"
             method="POST"
           >
             <input

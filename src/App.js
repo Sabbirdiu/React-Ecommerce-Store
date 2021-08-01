@@ -1,6 +1,6 @@
 import React from "react";
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Navbar, Footer, Sidebar } from "./components";
 import {
   Home,
@@ -9,7 +9,7 @@ import {
   Checkout,
   Error,
   About,
-  Products,
+  Product,
   PrivateRoute,
   AuthWrapper,
 } from "./pages";
@@ -19,7 +19,27 @@ function App() {
     <Router>
       <Navbar />
       <Sidebar />
-      <Home />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/about">
+          <About />
+        </Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+        <Route exact path="/products">
+          <Product />
+        </Route>
+        <Route exact path="/product/:id" children={<SingleProduct />} />
+        <PrivateRoute exact path="/checkout">
+          <Checkout />
+        </PrivateRoute>
+        <Route path="*">
+          <Error />
+        </Route>
+      </Switch>
       <Footer />
     </Router>
   );
