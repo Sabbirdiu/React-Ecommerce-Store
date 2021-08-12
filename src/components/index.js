@@ -8,6 +8,7 @@ import FeaturedProduct from "./home/FeaturedProducts";
 import Error from "./Error";
 import Loading from "./Loading";
 import PageHero from "./PageHero";
+import ProductImages from "./products/ProductImages";
 export {
   Navbar,
   Footer,
@@ -19,4 +20,5 @@ export {
   Error,
   Loading,
   PageHero,
+  ProductImages,
 };
