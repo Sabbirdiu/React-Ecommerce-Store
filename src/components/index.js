@@ -5,4 +5,18 @@ import Contact from "./home/Contact";
 import Hero from "./home/Hero";
 import Services from "./home/Services";
 import FeaturedProduct from "./home/FeaturedProducts";
-export { Navbar, Footer, Sidebar, Contact, Hero, Services, FeaturedProduct };
+import Error from "./Error";
+import Loading from "./Loading";
+import PageHero from "./PageHero";
+export {
+  Navbar,
+  Footer,
+  Sidebar,
+  Contact,
+  Hero,
+  Services,
+  FeaturedProduct,
+  Error,
+  Loading,
+  PageHero,
+};
