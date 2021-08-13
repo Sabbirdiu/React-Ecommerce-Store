@@ -9,6 +9,8 @@ import Error from "./Error";
 import Loading from "./Loading";
 import PageHero from "./PageHero";
 import ProductImages from "./products/ProductImages";
+import Stars from "./products/Stars";
+import AddToCart from "./products/AddToCart";
 export {
   Navbar,
   Footer,
@@ -21,4 +23,6 @@ export {
   Loading,
   PageHero,
   ProductImages,
+  Stars,
+  AddToCart,
 };
