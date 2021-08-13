@@ -11,6 +11,9 @@ import PageHero from "./PageHero";
 import ProductImages from "./products/ProductImages";
 import Stars from "./products/Stars";
 import AddToCart from "./products/AddToCart";
+import Filters from "./products/Filters";
+import ProductList from "./products/ProductList";
+import Sort from "./products/Sort";
 export {
   Navbar,
   Footer,
@@ -25,4 +28,7 @@ export {
   ProductImages,
   Stars,
   AddToCart,
+  Filters,
+  ProductList,
+  Sort,
 };

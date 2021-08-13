@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Error from "../Error";
 import Loading from "../Loading";
-import Product from "./Product";
+import Product from "../products/Product";
 
 const FeaturedProducts = () => {
   const {
