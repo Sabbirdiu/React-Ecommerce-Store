@@ -13,7 +13,7 @@ import Stars from "./products/Stars";
 import AddToCart from "./products/AddToCart";
 import Filters from "./products/Filters";
 import ProductList from "./products/ProductList";
-import Sort from "./products/Sort";
+import Sort from "./productview/Sort";
 export {
   Navbar,
   Footer,
