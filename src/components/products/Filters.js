@@ -22,6 +22,7 @@ const Filters = () => {
   const categories = getUniqueValues(all_products, "category");
   const companies = getUniqueValues(all_products, "company");
   const colors = getUniqueValues(all_products, "colors");
+
   return (
     <Wrapper>
       <div className="content">
@@ -37,6 +38,28 @@ const Filters = () => {
               onChange={updateFilters}
             />
           </div>
+          {/* categories */}
+          <div className="form-control">
+            <h5>category</h5>
+            <div>
+              {categories.map((c, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={updateFilters}
+                    type="button"
+                    name="category"
+                    className={`${
+                      category === c.toLowerCase() ? "active" : null
+                    }`}
+                  >
+                    {c}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* end of categories */}
         </form>
       </div>
       {/* end search input */}
