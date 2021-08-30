@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { PageHero } from "../components";
+import { PageHero, StripeCheckout } from "../components";
 
 // extra imports
 import { useCartContext } from "../context/cart/cart_context";
@@ -19,7 +19,9 @@ const Checkout = () => {
             </Link>
           </div>
         ) : (
-          <p>stripecheckout</p>
+          <p>
+            <StripeCheckout />
+          </p>
         )}
       </Wrapper>
     </main>
