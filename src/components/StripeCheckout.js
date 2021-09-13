@@ -85,7 +85,7 @@ const CheckoutForm = () => {
           onChange={handleChange}
         />
         <button disabled={processing || disabled || succeeded} id="submit">
-          <span id="button-text">
+          <span id="button-text" className="spinner">
             {processing ? <div className="spinner" id="spinnier"></div> : "Pay"}
           </span>
         </button>
