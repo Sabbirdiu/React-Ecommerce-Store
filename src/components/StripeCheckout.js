@@ -14,7 +14,6 @@ import { formatPrice } from "../utils/helpers";
 import { useHistory } from "react-router-dom";
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
-
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
   const { myUser } = useUserContext();
@@ -45,6 +44,7 @@ const CheckoutForm = () => {
       },
     },
   };
+
   const createPaymentIntent = async () => {
     try {
       const { data } = await axios.post(
@@ -57,12 +57,38 @@ const CheckoutForm = () => {
       // console.log(error.response)
     }
   };
+
   useEffect(() => {
     createPaymentIntent();
     // eslint-disable-next-line
   }, []);
-  const handleChange = async (event) => {};
-  const handleSubmit = async (ev) => {};
+
+  const handleChange = async (event) => {
+    setDisabled(event.empty);
+    setError(event.error ? event.error.message : "");
+  };
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    setProcessing(true);
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+      },
+    });
+    if (payload.error) {
+      setError(`Payment failed ${payload.error.message}`);
+      setProcessing(false);
+    } else {
+      setError(null);
+      setProcessing(false);
+      setSucceeded(true);
+      setTimeout(() => {
+        clearCart();
+        history.push("/");
+      }, 10000);
+    }
+  };
+
   return (
     <div>
       {succeeded ? (
@@ -85,7 +111,7 @@ const CheckoutForm = () => {
           onChange={handleChange}
         />
         <button disabled={processing || disabled || succeeded} id="submit">
-          <span id="button-text" className="spinner">
+          <span id="button-text">
             {processing ? <div className="spinner" id="spinnier"></div> : "Pay"}
           </span>
         </button>
@@ -107,13 +133,17 @@ const CheckoutForm = () => {
     </div>
   );
 };
+
 const StripeCheckout = () => {
   return (
-    <Elements stripe={promise}>
-      <CheckoutForm />
-    </Elements>
+    <Wrapper>
+      <Elements stripe={promise}>
+        <CheckoutForm />
+      </Elements>
+    </Wrapper>
   );
 };
+
 const Wrapper = styled.section`
   form {
     width: 30vw;
